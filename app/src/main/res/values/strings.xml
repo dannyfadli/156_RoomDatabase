@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">My Arsitektur_MVVM</string>
-    <string name="submit">Submit</string>
-    <string name="back">Back</string>
-    <string name="nama_lengkap">Nama lengkap</string>
-    <string name="jenis_kelamin">JENIS KELAMIN</string>
-    <string name="alamat">Alamat</string>
-    <string name="tampil">Tampilan</string>
-    <string name="home">Form Isian</string>
+<!--    <string name="submit">Submit</string>-->
+<!--    <string name="back">Back</string>-->
+<!--    <string name="nama_lengkap">Nama lengkap</string>-->
+<!--    <string name="jenis_kelamin">JENIS KELAMIN</string>-->
+<!--    <string name="alamat">Alamat</string>-->
+<!--    <string name="tampil">Tampilan</string>-->
+<!--    <string name="home">Form Isian</string>-->
+    <string name="entry_siswa">Tambah Siswa</string>
 
 </resources>

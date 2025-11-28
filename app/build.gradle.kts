@@ -2,7 +2,12 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
+
+
 }
+
+
 
 android {
     namespace = "com.example.myarsitektur_mvvm"
@@ -51,6 +56,14 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.room.ktx)
+
+    implementation(libs.compose.icons)
+    //Room
+    implementation(libs.bundles.room)
+    //ksp
+    ksp(libs.room.compiler)
+
+
     testImplementation(libs.junit)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.lifectcle.runtime.compose)
