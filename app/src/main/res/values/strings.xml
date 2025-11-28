@@ -22,4 +22,6 @@
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
     <string name="delete">Hapus</string>
+    <string name="update">Edit</string>
+
 </resources>
