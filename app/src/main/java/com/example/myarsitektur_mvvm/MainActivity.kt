@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.myarsitektur_mvvm.ui.theme.MyArsitektur_MVVMTheme
 import com.example.myarsitektur_mvvm.view.uicontoller.DataApp
+import com.example.myarsitektur_mvvm.view.uicontoller.SiswaApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,9 +23,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyArsitektur_MVVMTheme {
-                Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background) {
-                    DataApp()
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    SiswaApp(
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
             }
         }

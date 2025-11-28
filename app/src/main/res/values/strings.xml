@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">My Arsitektur_MVVM</string>
-<!--    <string name="submit">Submit</string>-->
+    <string name="submit">Submit</string>
 <!--    <string name="back">Back</string>-->
-<!--    <string name="nama_lengkap">Nama lengkap</string>-->
-<!--    <string name="jenis_kelamin">JENIS KELAMIN</string>-->
+    <string name="nama_lengkap">Nama lengkap</string>
+    <string name="jenis_kelamin">JENIS KELAMIN</string>
 <!--    <string name="alamat">Alamat</string>-->
-<!--    <string name="tampil">Tampilan</string>-->
-<!--    <string name="home">Form Isian</string>-->
+    <string name="tampil">Tampilan</string>
+    <string name="home">Form Isian</string>
     <string name="entry_siswa">Tambah Siswa</string>
     <string name="deskripsi_no_item">Tidak ada data Siswa. Tap + untuk menambah data</string>
     <string name="nama">Nama Siswa*</string>
@@ -25,4 +25,8 @@
     <string name="update">Edit</string>
     <string name="attention">Perhatian</string>
     <string name="tanya">Apakah anda yakin menghapus ini ? </string>
+    <string name="simpan">Simpan</string>
+    <string name="form_tidak_valid">form tidak valid</string>
+    <string name="tambah_siswa">tambahSiswa</string>
+    <string name="tidak_ada_data">TidakAdaData</string>
 </resources>
