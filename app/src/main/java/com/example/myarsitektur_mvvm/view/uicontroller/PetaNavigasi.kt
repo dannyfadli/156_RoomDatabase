@@ -3,12 +3,12 @@ package com.example.myarsitektur_mvvm.view.uicontroller
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.myarsitektur_mvvm.view.EditSiswaScreen
 import com.example.myarsitektur_mvvm.view.EntrySiswaScreen
 import com.example.myarsitektur_mvvm.view.HomeScreen

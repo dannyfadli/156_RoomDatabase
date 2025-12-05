@@ -1,4 +1,4 @@
-package com.example.myarsitektur_mvvm.view.uicontroller
+package com.example.myarsitektur_mvvm.view
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
@@ -32,7 +32,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.myarsitektur_mvvm.view.SiswaTopAppBar
 import com.example.myarsitektur_mvvm.view.route.DestinasiDetailSiswa
 import com.example.myarsitektur_mvvm.viewmodel.DetailViewModel
 import com.example.myarsitektur_mvvm.viewmodel.provider.PenyediaViewModel
@@ -47,7 +46,7 @@ import androidx.compose.runtime.setValue
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailSiswaScreen(
-    //navigateToEditItem: (Int) -> Unit,
+    navigateToEdit: (Int) -> Unit,
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: DetailViewModel = viewModel(factory = PenyediaViewModel.Factory)
@@ -64,7 +63,7 @@ fun DetailSiswaScreen(
             val uiState = viewModel.uiDetailState.collectAsState()
             FloatingActionButton(
                 onClick = {
-                    //navigateToEditItem(uiState.value.detailSiswa.id)
+                    navigateToEdit(uiState.value.detailSiswa.id)
                 },
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large))

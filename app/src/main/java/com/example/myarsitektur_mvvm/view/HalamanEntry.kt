@@ -14,8 +14,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.myarsitektur_mvvm.R
+import com.example.myarsitektur_mvvm.viewmodel.DetailSiswa
 import com.example.myarsitektur_mvvm.viewmodel.provider.PenyediaViewModel
 import com.example.myarsitektur_mvvm.viewmodel.EntryViewModel
+import com.example.myarsitektur_mvvm.viewmodel.UIStateSiswa
 import kotlinx.coroutines.launch
 
 
@@ -85,5 +87,67 @@ fun EntrySiswaScreen(
         ) {
             Text(text = stringResource(R.string.simpan))
         }
+    }
+}
+
+@Composable
+fun EntrySiswaBody(
+    uiStateSiswa: UIStateSiswa,
+    onValueChange: (DetailSiswa) -> Unit,
+    onSaveClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        SiswaInputForm(
+            detailSiswa = uiStateSiswa.detailSiswa,
+            onValueChange = onValueChange,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Button(
+            onClick = onSaveClick,
+            enabled = uiStateSiswa.isEntryValid,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Simpan")
+        }
+    }
+}
+
+@Composable
+fun SiswaInputForm(
+    detailSiswa: DetailSiswa,
+    onValueChange: (DetailSiswa) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        OutlinedTextField(
+            value = detailSiswa.nama,
+            onValueChange = { onValueChange(detailSiswa.copy(nama = it)) },
+            label = { Text("Nama") },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth()
+        )
+        OutlinedTextField(
+            value = detailSiswa.alamat,
+            onValueChange = { onValueChange(detailSiswa.copy(alamat = it)) },
+            label = { Text("Alamat") },
+            modifier = Modifier.fillMaxWidth()
+        )
+        OutlinedTextField(
+            value = detailSiswa.telpon,
+            onValueChange = { onValueChange(detailSiswa.copy(telpon = it)) },
+            label = { Text("Telepon") },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

@@ -10,6 +10,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -20,7 +21,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.myarsitektur_mvvm.R
 import com.example.myarsitektur_mvvm.room.Siswa
 import com.example.myarsitektur_mvvm.view.route.DestinasiHome
-import com.example.myarsitektur_mvvm.view.uicontroller.DetailDataSiswa
 import com.example.myarsitektur_mvvm.viewmodel.provider.PenyediaViewModel
 import com.example.myarsitektur_mvvm.viewmodel.HomeViewModel
 
@@ -29,6 +29,7 @@ import com.example.myarsitektur_mvvm.viewmodel.HomeViewModel
 @Composable
 fun HomeScreen(
     navigateToItemEntry: () -> Unit,
+    navigateToItemUpdate:(Int) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
@@ -65,29 +66,39 @@ fun HomeScreen(
         } else
 
         {
-            LazyColumn(
+//            LazyColumn(
+//                modifier = Modifier
+//                    .padding(innerPadding)
+//                    .fillMaxSize(),
+//                verticalArrangement = Arrangement.spacedBy(8.dp)
+//            ) {
+//                items(uiState.listSiswa) { siswa ->
+//                    Card(
+//                        modifier = Modifier
+//                            .fillMaxWidth()
+//                            .padding(horizontal = 16.dp)
+//                    ) {
+//                        Column(
+//                            modifier = Modifier.padding(16.dp)
+//                        ) {
+//                            Text(text = siswa.nama, style = MaterialTheme.typography.titleMedium)
+//                            Text(text = siswa.alamat)
+//                            Text(text = siswa.telpon)
+//                        }
+//                    }
+//                }
+//            }
+            val uiStateSiswa by viewModel.homeUiState.collectAsState()
+            BodyHome(
+                itemSiswa = uiStateSiswa.listSiswa,
+                onSiswaClick = navigateToItemUpdate,
                 modifier = Modifier
                     .padding(innerPadding)
-                    .fillMaxSize(),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                items(uiState.listSiswa) { siswa ->
-                    Card(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp)
-                    ) {
-                        Column(
-                            modifier = Modifier.padding(16.dp)
-                        ) {
-                            Text(text = siswa.nama, style = MaterialTheme.typography.titleMedium)
-                            Text(text = siswa.alamat)
-                            Text(text = siswa.telpon)
-                        }
-                    }
-                }
-            }
+                    .fillMaxSize()
+            )
         }
+
+
     }
 }
 
