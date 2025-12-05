@@ -1,6 +1,7 @@
 package com.example.myarsitektur_mvvm.room
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -18,7 +19,7 @@ interface SiswaDao {
     suspend fun insert(siswa: Siswa)
 
     @Query("SELECT * from tblSiswa WHERE id = :id")
-    fun getSiswa(id: int):Flow<Siswa>
+    fun getSiswa(id: Int):Flow<Siswa>
 
     @Delete
     suspend fun delete(siswa: Siswa)
