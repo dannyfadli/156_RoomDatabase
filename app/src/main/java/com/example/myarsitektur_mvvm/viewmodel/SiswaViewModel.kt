@@ -1,4 +1,4 @@
-package com.example.myarsitektur_mvvm.view.viewmodel
+package com.example.myarsitektur_mvvm.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.example.myarsitektur_mvvm.model.Data.Siswa

@@ -60,6 +60,10 @@ dependencies {
     implementation(libs.compose.icons)
     //Room
     implementation(libs.bundles.room)
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.ui)
     //ksp
     ksp(libs.room.compiler)
 

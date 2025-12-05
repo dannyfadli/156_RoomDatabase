@@ -1,6 +1,7 @@
 package com.example.myarsitektur_mvvm.view
 
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -11,12 +12,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.myarsitektur_mvvm.R
+import com.example.myarsitektur_mvvm.room.Siswa
 import com.example.myarsitektur_mvvm.view.route.DestinasiHome
-import com.example.myarsitektur_mvvm.view.viewmodel.provider.PenyediaViewModel
+import com.example.myarsitektur_mvvm.view.uicontroller.DetailDataSiswa
+import com.example.myarsitektur_mvvm.viewmodel.provider.PenyediaViewModel
 import com.example.myarsitektur_mvvm.viewmodel.HomeViewModel
 
 
@@ -57,7 +62,9 @@ fun HomeScreen(
             ) {
                 Text(text = stringResource(R.string.tidak_ada_data))
             }
-        } else {
+        } else
+
+        {
             LazyColumn(
                 modifier = Modifier
                     .padding(innerPadding)
@@ -80,6 +87,56 @@ fun HomeScreen(
                     }
                 }
             }
+        }
+    }
+}
+
+
+@Composable
+fun BodyHome(
+    itemSiswa: List<Siswa>,
+    onSiswaClick: (Int) -> Unit,
+    modifier: Modifier=Modifier){
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ){
+        if(itemSiswa.isEmpty()){
+            Text(
+                text = stringResource(R.string.deskripsi_no_item),
+                textAlign = TextAlign.Center,
+                style =  MaterialTheme.typography.titleMedium
+            )
+        }else{
+            ListSiswa(
+                itemSiswa = itemSiswa,
+
+                onSiswaClick = {onSiswaClick(it.id)},
+                modifier = Modifier.padding(horizontal = dimensionResource(R.dimen.padding_extra_large))
+            )
+        }
+    }
+}
+
+
+
+@Composable
+fun ListSiswa (
+    itemSiswa : List<Siswa>,
+    onSiswaClick: (Siswa) -> Unit,
+    modifier: Modifier = Modifier
+){
+    LazyColumn (modifier = modifier) { // Gunakan modifier yang diteruskan
+        items(
+            items = itemSiswa,
+            key = { it.id }
+        ) { person ->
+            DetailDataSiswa(
+                siswa = person,
+                modifier = Modifier
+                    .padding(dimensionResource(id = R.dimen.padding_small))
+                    .clickable { onSiswaClick(person) }
+            )
         }
     }
 }

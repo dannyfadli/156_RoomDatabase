@@ -1,4 +1,4 @@
-package com.example.myarsitektur_mvvm.view.uicontoller
+package com.example.myarsitektur_mvvm.view.uicontroller
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -15,7 +15,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.myarsitektur_mvvm.model.Data.DataJK
 import com.example.myarsitektur_mvvm.view.FormIsian
 import com.example.myarsitektur_mvvm.view.TampilData
-import com.example.myarsitektur_mvvm.view.viewmodel.SiswaViewModel
+import com.example.myarsitektur_mvvm.viewmodel.SiswaViewModel
 
 enum class Navigasi {
     Formulirku,
